@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="/./style/main.css">
 	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>黑苹果系统安装教程（一）</title>
+	<title>iPhone5s降级iOS10.3.3</title>
   
   <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
   </script>
@@ -49,7 +49,7 @@
     
   
   <h1 class="title">
-    黑苹果系统安装教程（一）
+    iPhone5s降级iOS10.3.3
   </h1>
   
 
@@ -57,11 +57,11 @@
     <ul class="article-info">
       <li>
         发布
-        <time datetime="2020-05-02T16:00:00.000Z" itemprop="datePublished">2020-05-03</time>
+        <time datetime="2020-05-09T16:00:00.000Z" itemprop="datePublished">2020-05-10</time>
       </li>
       <li>
         
-    更新 <time datetime="2020-07-29T12:10:54.000Z" itemprop="dateUpdated">2020-07-29</time>
+    更新 <time datetime="2021-03-10T13:05:40.000Z" itemprop="dateUpdated">2021-03-10</time>
 
       </li>
       <li id="busuanzi_container_page_pv">
@@ -73,49 +73,10 @@
     <div class="article">
       <div class="content">
         
-        <p>写在前面：<br>目前笔记本想体验黑苹果，必须是intel处理器，AMD的CPU安装太费劲而且经常出现未知的bug。并且笔记本自带的显卡大多无法驱动，笔记本的N卡连webdriver都用不了，所以只能使用核显卡。而且大多数笔记本的无线网卡无法驱动，可以通过USB网卡替代或者直接更换网卡。建议更换的网卡型号为：DW1830、DW1560、DW1820（部分可用）、BCM94360CS2(拆机网卡)等，具体更换教程可以根据不同笔记本来定，有的板载网卡的只能用USB替代（USB的可使用小米随身wifi、360随身WiFi2代、COMFAST的）这次的教程我分两期来写，大家不要着急。<span id="more"></span></p>
-<p>首先判断机子是否符合安装</p>
-<p>英特尔酷睿CPU(笔记本赛扬，奔腾无法驱动显卡除非只有独显)。</p>
-<p>支持UEFI启动。</p>
-<p>显卡：笔记本须为酷睿CPU才可以驱动核显 想要驱动独显前提为BIOS能屏蔽核显</p>
-<p>本文只讨论inter处理器的笔记本电脑和台式机，一些高端笔记本可以驱动双显卡，特殊机型不做讨论，AMD处理器电脑也不做讨论。</p>
-<p>镜像的选择</p>
-<p>本教程为原版安装，去黑果小兵官网下载此镜像教程以安装macOS High Sierra 10.13.6(17G65)为例。（现在版本已经出到了10.15.4。）<br>本镜像含有引导，对于小白可以直接使用里面对应的config试试。如果不行其他问题请百度解决。<br>准备工作</p>
-<p>优盘8G以上。</p>
-<p>检查磁盘是否符合安装原版，硬盘分区格式。</p>
-<p>下载镜像。</p>
-<p>DMG写入工具：Etcher。</p>
-<p>1.选择镜像。<br><img src="/images/4.png" alt="(1)"></p>
-<p>2.插u盘，插上会自动识别。<br><img src="/images/5.png" alt="(2)"></p>
-<p>3.点Flash开始写镜像，会提示给予管理员权限，给予就好。时间根据u盘读写速度而定。（写入镜像会格式化u盘，请提前做好备份）</p>
-<p><img src="/images/18172345-c9294ded9c6bf607.png" alt="(3)"></p>
-<p>4.正在写入，耐心等待提示完成。</p>
-<p><img src="/images/18172345-5e15868c2c6493a2.png" alt="(4)"></p>
-<p><img src="/images/18172345-482d47672b24744b.png" alt="(5)"><br>将要安装macOS的磁盘分区表转换为GUID，再建立esp分区，建议300m起步。<br>u盘启动</p>
-<p>将u盘插在电脑的usb2.0接口上设置为u盘启动</p>
-<p>1.bios需要关闭安全启动（secure boot）。</p>
-<p>2.需要bios打开uefi。</p>
-<p>3.部分台式机bios下需要将启动系统改为其他。</p>
-<p>4.打开AHCI，一般电脑默认打开了的。</p>
-<p>BIOS情况复杂，只写了必要的几个设置。</p>
-<p>安装</p>
-<p>由于本镜像集成了黑苹果的引导，所以大家写入镜像后就可以直接u盘启动安装试试，运气好是可以直接进入安装界面的，如果运气不好卡住了另作讨论说明。</p>
-<p>重启优盘UEFI启动 记得一定是UEFI优盘启动然后会看到如下的界面。</p>
-<p><img src="/images/18172345-d3f7e7b5e29ce1ee.png" alt="(6)"></p>
-<p>选择安装盘 如图红色框（看名字）按空格.<br><img src="/images/18172345-a1c3192ae5e550c9.png" alt="(7)"></p>
-<p>勾选Verbose(-v),此项也就是啰嗦模式和Don`t reboot on panic(debug=0x100)此项能够让安装遇到问题不会重启方便查看问题。</p>
-<p><img src="/images/18172345-a32ef64114ad1854.png" alt="(8)"></p>
-<p>根据啰嗦模式的错误进行修改引导文件。</p>
-<p>进入安装界面后先打开磁盘工具进行抹盘.<br><img src="/images/18172345-cda85f15c4fc1a16.png" alt="(9)"></p>
-<p>选择要安装Mac的分区 抹掉。<br><img src="/images/18172345-6f077b140824264e.png" alt="(10)"><br>名字用英文，格式选择apfs，方案选择GUID。（我这里是全盘抹掉的，要抹掉单个分区选择单个分区点抹掉即可，如果在此提示错误 说分区小那是ESP分区小于200m）<br>此处还要拔网线，改时间，自行百度。</p>
-<p>进行安装<br><img src="/images/18172345-40278fef0e508700.png" alt="(11)"></p>
-<p>这里就不说了 也就是同意 继续的 如果是英文界面 有两个选项的都选右边那个</p>
-<p>选择刚抹掉的分区安装</p>
-<p><img src="/images/18172345-147e94289238fb93.png" alt="(12)"></p>
-<p>选择后开始安装，这里会很快重启，重启后继续u盘启动。</p>
-<p><img src="/images/18172345-861797a043ca7cb3.png" alt="(13)"><br>重启后会多出一个或多个启动项，选择Boot macOS Install from “你的磁盘名字”会车安装，安装很快还会再次重启，然后再选择这个启动项正常安装。当再次重启后应该就安装完成了，<br>会有一个Boot macOS from “你的磁盘名字”的启动项，悬着他启动就可以正常进入黑苹果开机引导界面了。</p>
-<p><img src="/images/18172345-3fb8b6f368114724.png" alt="(14)"></p>
-<p>后面则为正常设置，至此黑苹果的安装就完成了。</p>
+        <p>iPhone5s降级iOS10.3.3<br>要求<br>运行10.14.x或更高版本的MacOS计算机（Hackintosh或合法Mac）（虚拟机不工作，CHECKM8在虚拟机中不工作）兼容的iOS设备-如果您的设备是32位设备，则需要在安装了OpenSSH的情况下越狱（某些设备在安装OpenSSH后需要重新启动并重新越狱）<span id="more"></span><br>下面是我对这位大佬写的关于此方法的翻译<br>阅读本自述文件的能力<br>设备支持<br>iOS 10.3.3<br>iPhone 5s<br>用法<br>Usage: viuex [OPTIONS] [IPSW PATH (If required)]<br>Options:<br>  -i, –ipsw PATH        Path to IPSW file<br>  -c, –clean              Clean up any leftover files<br>  -k, –kdfu PATH        “Path/To/patchiBSS” Enter KDFU mode (32 Bit Only, device must be jailbroken)<br>  -l, –list              List what devices can be restored to what iOS versions<br>  -p, –pwn           Enter PWNDFU mode, which will also apply sig patches (64 Bit Only)<br>  -r, –restore          “Path/To/.ipsw” Just restore to a custom ipsw<br>  -s, –shsh PATH      “Path/To/Save/Location/“ Save OTA blobs to a given path for future use (64 Bit Only)<br>  -v, –version            List the version of the tool<br>  -y, –credits            List credits and Big Yoshi</p>
+<p>安装依赖<br>需要Python3（至少3.5）<br>运行“ pip3 install -r requirements.txt”以安装所有依赖项<br>使用说明<br>1.’pip3 install -r requirements.txt’安装所有依赖项<br>2.’cd’到下载的’Vieux’文件夹中<br>3.运行’./vieux -i“ PATH / TO / .ipsw”’，或者，如果该命令不起作用，则运行’python3 vieux -i“ PATH / TO / .ipsw”’<br>4.照着工具的提示来完成或继续操作，看不懂英文请机翻。<br>常问问题<br>如何使用此工具？<br>如果您有64位设备（iPhone 5s，iPad Mini 2，iPad Air），则只需以DFU模式连接设备并运行该工具。<br>为什么该工具无法运行？<br>尝试使用此工具之前，请确保已运行“ pip3 install -r requirements.txt”。如果仍不能解决问题，请对该错误进行屏幕截图，然后给我打电话或加微信和QQ。</p>
+<p>什么时候支持其他操作系统？EG Linux，Windows等…<br>由于Windows是任何与iOS相关的东西的糟糕操作系统，因此很可能永远不会有Windows支持。Linux支持是可能的，并且很可能会在以后提供。仅适用于macOS，Mojave最好，但Catalina可以工作。因为已经更新对Catalina的补丁。再低于Mojave，则未经测试且没有官方支持，但可以尝试一下，如果不起作用，请不要期待我的任何帮助。因为我们没有试过！如果问的话，那就是升级你的macOS版本至Mojave！</p>
+<p>OK，说了这么多，其实就是我懒，懒得贴图！那么我们下面来整理一下步骤吧！<br>1.下载python3.7，直接官网，不贴链接！<br>2.爱思下载对应型号的固件。<br>3.打开终端，输入cd，按空格，将下载好的文件夹（文末提供地址）拖入终端窗口。<br>4.输入pip3 install -r requirements.txt，回车，等待安装依赖完成。<br>5.手机进入DFU模式后连接电脑，输入python3 vieux -i，按空格，将下载好的固件拖入终端窗口，按回车。<br>6.等待，等待，直到开始跑进度条！<br>好的，至此操作结束喽！！<br>我看好多论坛上说自己homebrew没安好，我都没安，直接一遍过，我也不知到怎么搞的，反正大家有疑问可以给我打电话，加我微信和QQ，我只要看到，我就会尽我所能帮助你们哦。<br>降级工具：<a target="_blank" rel="noopener" href="https://github.com/MatthewPierson/Vieux">https://github.com/MatthewPierson/Vieux</a></p>
 
       </div>
         <div class="support-author">

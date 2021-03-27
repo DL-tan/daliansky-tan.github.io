@@ -25,7 +25,7 @@
   <link rel="stylesheet" type="text/css" href="/./style/main.css">
 	<link rel="shortcut icon" href="/favicon.ico" title="Favicon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-	<title>黑苹果系统安装教程（一）</title>
+	<title>抓包教程</title>
   
   <script>var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?awwssw1snsnsnn1ndndnndnd99j";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s);})();
   </script>
@@ -49,7 +49,7 @@
     
   
   <h1 class="title">
-    黑苹果系统安装教程（一）
+    抓包教程
   </h1>
   
 
@@ -57,11 +57,11 @@
     <ul class="article-info">
       <li>
         发布
-        <time datetime="2020-05-02T16:00:00.000Z" itemprop="datePublished">2020-05-03</time>
+        <time datetime="2020-05-01T16:00:00.000Z" itemprop="datePublished">2020-05-02</time>
       </li>
       <li>
         
-    更新 <time datetime="2020-07-29T12:10:54.000Z" itemprop="dateUpdated">2020-07-29</time>
+    更新 <time datetime="2020-07-29T12:10:20.000Z" itemprop="dateUpdated">2020-07-29</time>
 
       </li>
       <li id="busuanzi_container_page_pv">
@@ -73,49 +73,26 @@
     <div class="article">
       <div class="content">
         
-        <p>写在前面：<br>目前笔记本想体验黑苹果，必须是intel处理器，AMD的CPU安装太费劲而且经常出现未知的bug。并且笔记本自带的显卡大多无法驱动，笔记本的N卡连webdriver都用不了，所以只能使用核显卡。而且大多数笔记本的无线网卡无法驱动，可以通过USB网卡替代或者直接更换网卡。建议更换的网卡型号为：DW1830、DW1560、DW1820（部分可用）、BCM94360CS2(拆机网卡)等，具体更换教程可以根据不同笔记本来定，有的板载网卡的只能用USB替代（USB的可使用小米随身wifi、360随身WiFi2代、COMFAST的）这次的教程我分两期来写，大家不要着急。<span id="more"></span></p>
-<p>首先判断机子是否符合安装</p>
-<p>英特尔酷睿CPU(笔记本赛扬，奔腾无法驱动显卡除非只有独显)。</p>
-<p>支持UEFI启动。</p>
-<p>显卡：笔记本须为酷睿CPU才可以驱动核显 想要驱动独显前提为BIOS能屏蔽核显</p>
-<p>本文只讨论inter处理器的笔记本电脑和台式机，一些高端笔记本可以驱动双显卡，特殊机型不做讨论，AMD处理器电脑也不做讨论。</p>
-<p>镜像的选择</p>
-<p>本教程为原版安装，去黑果小兵官网下载此镜像教程以安装macOS High Sierra 10.13.6(17G65)为例。（现在版本已经出到了10.15.4。）<br>本镜像含有引导，对于小白可以直接使用里面对应的config试试。如果不行其他问题请百度解决。<br>准备工作</p>
-<p>优盘8G以上。</p>
-<p>检查磁盘是否符合安装原版，硬盘分区格式。</p>
-<p>下载镜像。</p>
-<p>DMG写入工具：Etcher。</p>
-<p>1.选择镜像。<br><img src="/images/4.png" alt="(1)"></p>
-<p>2.插u盘，插上会自动识别。<br><img src="/images/5.png" alt="(2)"></p>
-<p>3.点Flash开始写镜像，会提示给予管理员权限，给予就好。时间根据u盘读写速度而定。（写入镜像会格式化u盘，请提前做好备份）</p>
-<p><img src="/images/18172345-c9294ded9c6bf607.png" alt="(3)"></p>
-<p>4.正在写入，耐心等待提示完成。</p>
-<p><img src="/images/18172345-5e15868c2c6493a2.png" alt="(4)"></p>
-<p><img src="/images/18172345-482d47672b24744b.png" alt="(5)"><br>将要安装macOS的磁盘分区表转换为GUID，再建立esp分区，建议300m起步。<br>u盘启动</p>
-<p>将u盘插在电脑的usb2.0接口上设置为u盘启动</p>
-<p>1.bios需要关闭安全启动（secure boot）。</p>
-<p>2.需要bios打开uefi。</p>
-<p>3.部分台式机bios下需要将启动系统改为其他。</p>
-<p>4.打开AHCI，一般电脑默认打开了的。</p>
-<p>BIOS情况复杂，只写了必要的几个设置。</p>
-<p>安装</p>
-<p>由于本镜像集成了黑苹果的引导，所以大家写入镜像后就可以直接u盘启动安装试试，运气好是可以直接进入安装界面的，如果运气不好卡住了另作讨论说明。</p>
-<p>重启优盘UEFI启动 记得一定是UEFI优盘启动然后会看到如下的界面。</p>
-<p><img src="/images/18172345-d3f7e7b5e29ce1ee.png" alt="(6)"></p>
-<p>选择安装盘 如图红色框（看名字）按空格.<br><img src="/images/18172345-a1c3192ae5e550c9.png" alt="(7)"></p>
-<p>勾选Verbose(-v),此项也就是啰嗦模式和Don`t reboot on panic(debug=0x100)此项能够让安装遇到问题不会重启方便查看问题。</p>
-<p><img src="/images/18172345-a32ef64114ad1854.png" alt="(8)"></p>
-<p>根据啰嗦模式的错误进行修改引导文件。</p>
-<p>进入安装界面后先打开磁盘工具进行抹盘.<br><img src="/images/18172345-cda85f15c4fc1a16.png" alt="(9)"></p>
-<p>选择要安装Mac的分区 抹掉。<br><img src="/images/18172345-6f077b140824264e.png" alt="(10)"><br>名字用英文，格式选择apfs，方案选择GUID。（我这里是全盘抹掉的，要抹掉单个分区选择单个分区点抹掉即可，如果在此提示错误 说分区小那是ESP分区小于200m）<br>此处还要拔网线，改时间，自行百度。</p>
-<p>进行安装<br><img src="/images/18172345-40278fef0e508700.png" alt="(11)"></p>
-<p>这里就不说了 也就是同意 继续的 如果是英文界面 有两个选项的都选右边那个</p>
-<p>选择刚抹掉的分区安装</p>
-<p><img src="/images/18172345-147e94289238fb93.png" alt="(12)"></p>
-<p>选择后开始安装，这里会很快重启，重启后继续u盘启动。</p>
-<p><img src="/images/18172345-861797a043ca7cb3.png" alt="(13)"><br>重启后会多出一个或多个启动项，选择Boot macOS Install from “你的磁盘名字”会车安装，安装很快还会再次重启，然后再选择这个启动项正常安装。当再次重启后应该就安装完成了，<br>会有一个Boot macOS from “你的磁盘名字”的启动项，悬着他启动就可以正常进入黑苹果开机引导界面了。</p>
-<p><img src="/images/18172345-3fb8b6f368114724.png" alt="(14)"></p>
-<p>后面则为正常设置，至此黑苹果的安装就完成了。</p>
+        <p>抓包旧版请准备以下软件</p>
+<p>1 iTunes一键卸载工具 </p>
+<p>2 Fiddler2 下载地址：<a target="_blank" rel="noopener" href="http://www.telerik.com/fiddler">http://www.telerik.com/fiddler</a></p>
+<p>3 iTunes旧版本 12.3.2.35版本 </p>
+<p>4 苹果旧版app下载   （要文件的进q群：704998637）<span id="more"></span></p>
+<p>教程开始</p>
+<p>1.首先打开 iTunes一键卸载工具 卸载电脑上的新版iTunes（如果装了旧版就没这个必要了，你懂的）卸载完打开 我的电脑 点 音乐 把iTunes这个文件删除！</p>
+<p>2.安装证书 打开Fiddler2 打开软件会有一个对话框提示，然后点NO，如果没有就忽略这一步！</p>
+<p>3.安装证书开始 ，首先打开 Fiddler ，然后点击Fiddler首页顶部的 Tools 选择 Fiddler Web Debugger，进去之后勾选 Capture HTTPS CONNECTs 和 Decrypt HTTPS traffic 以及 Check for certificate revocation 三项！点击OK，提示安装证书，一直点确定或者好或者是即可！<br><img src="/images/1.png" alt="(1)"></p>
+<p><img src="/images/2.png" alt="(2)"><br>然后点击 Actions 点 Trust root…，点 YES。再次点 Actions 点 Export root…点 确定 然后点OK 可以关闭这个软件了！</p>
+<p>4.安装证书 这下看桌面上多了一个证书 FiddlerRoot.cer  打开，安装证书，点 将所有的证书放入下列存储，选择浏览，选择 受信任的根证书颁发机构，确定安装。</p>
+<p>5.下载软件开始，打开旧版的iTunes并登陆你的苹果账号密码，搜索你想下载的软件，比如QQ，先搜索出来放着，然后打开软件 苹果旧版app下载 搜索QQ点击QQ软件右键 查看历史版本，就会看见右边好多版本，选择你想下载的版本号右键 下载此版本 点 确定，这下打开 旧版的iTunes，可以点QQ下面的下载了，下载出来就是旧版，点 我的应用 就可以看见刚才下载的QQ了，拉到桌面上就可以看见版本号了，然后用各大助手安装比如PP，爱思,iTools，随你吧！</p>
+<p>6.想下载什么就先打开iTunes先搜索出来，然后用 苹果旧版app下载这个软件 搜索并点下载旧版本，具体参考5</p>
+<p>故障处理<br>1.下载不了显示网络错误，修改电脑的DNS为114.114.114.114，（自己百度吧，不详细写修改DNS）然后打开C:\Windows\System32\drivers\etc 删除hosts这个文件！打开IE浏览器，点Internet选项，连接，局域网设置，去掉 为LAN使用代理服务器 前面的勾！确定就可以了！</p>
+<p>2.只要是卸载完 安装或打开出现 Library.itl 这个文件报错的问题 那是因为你没有删除 音乐里面的iTunes文件。</p>
+<p>3.关闭所有杀毒软件和安全卫士再使用</p>
+<p>4.如果下载出来的还是新版软件，可能是证书没装好，或者就是自己电脑系统问题需要从新做系统.</p>
+<p><img src="/images/3.png" alt="(3)"></p>
+<pre><code>                                                 如果你还是学不会，那就别捣鼓了！
+</code></pre>
 
       </div>
         <div class="support-author">
