@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="https://daliansky-tan.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://daliansky-tan.github.io/"/>
+  <updated>2021-03-27T03:52:17.670Z</updated>
+  <id>https://daliansky-tan.github.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>test</title>
+    <link href="https://daliansky-tan.github.io/2021/03/27/hello-world/"/>
+    <id>https://daliansky-tan.github.io/2021/03/27/hello-world/</id>
+    <published>2021-03-27T03:35:02.719Z</published>
+    <updated>2021-03-27T03:52:17.670Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+</feed>
