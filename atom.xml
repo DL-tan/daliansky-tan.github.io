@@ -6,7 +6,7 @@
   <link href="https://daliansky-tan.github.io/atom.xml" rel="self"/>
   
   <link href="https://daliansky-tan.github.io/"/>
-  <updated>2021-05-01T13:26:54.508Z</updated>
+  <updated>2021-05-01T13:37:00.009Z</updated>
   <id>https://daliansky-tan.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://daliansky-tan.github.io/2021/05/01/4%20%E6%AD%A5%E9%A9%B1%E5%8A%A8%20Intel%20%E6%A0%B8%E6%98%BE/"/>
     <id>https://daliansky-tan.github.io/2021/05/01/4%20%E6%AD%A5%E9%A9%B1%E5%8A%A8%20Intel%20%E6%A0%B8%E6%98%BE/</id>
     <published>2021-04-30T16:00:00.000Z</published>
-    <updated>2021-05-01T13:26:54.508Z</updated>
+    <updated>2021-05-01T13:37:00.009Z</updated>
     
-    <content type="html"><![CDATA[<p>只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）<span id="more"></span></p><p>清理以前的驱动→添加 lilu+WhateverGreen 驱动→获取 IGPU 的设备路径→填入 ig-platform-id 和 device-id</p><p>看弄完驱动 HD4600 也就这点东西：<br><img src="/images/FB_Final.png" alt="(1)"></p><h1 id="清理驱动"><a href="#清理驱动" class="headerlink" title="清理驱动"></a>清理驱动</h1><p>1.移除以下驱动<br>*AzulPatcher4600<br>*AppleBacklightFixup<br>*CoreDisplayFixup<br>*FakePCIID_Intel_HD_Graphics<br>*FakePCIID_Intel_HDMI_Audio<br>*FakePCIID.kext（不使用其他基于 FakePCIID 的插件时）<br>*IntelGraphicsFixup<br>*IntelGraphicsDVMTFixup<br>*NvidiaGraphicsFixup</p><blockquote><p>这些驱动文件通常位于 Clover 的 kexts/Other 文件夹中</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）<span id="more"></span></p><p>清理以前的驱动→添加 lilu+WhateverGreen 驱动→获取 IGPU 的设备路径→填入 ig-platform-id 和 device-id</p><p>看弄完驱动 HD4600 也就这点东西：<br><img src="/images/FB_Final.png" alt="(1)"></p><h1 id="清理驱动"><a href="#清理驱动" class="headerlink" title="清理驱动"></a>清理驱动</h1><p>1.移除以下驱动<br>*AzulPatcher4600<br>*AppleBacklightFixup<br>*CoreDisplayFixup<br>*FakePCIID_Intel_HD_Graphics<br>*FakePCIID_Intel_HDMI_Audio<br>*FakePCIID.kext（不使用其他基于 FakePCIID 的插件时）<br>*IntelGraphicsFixup<br>*IntelGraphicsDVMTFixup<br>*NvidiaGraphicsFixup</p><blockquote><p>这些驱动文件通常位于 Clover 的 kexts/Other 文件夹中</p></blockquote><p>2.关闭所有 Clover 中的显卡注入<br>*config.plist ▸ Graphics ▸ Inject ▸ ATI = NO<br>*config.plist ▸ Graphics ▸ Inject ▸ Intel = NO<br>*config.plist ▸ Graphics ▸ Inject ▸ NVidia = NO<br>*config.plist ▸ Graphics ▸ ig-platform-id = 清空<br>*config.plist ▸ Devices ▸ FakeID ▸ IntelGFX = 清空</p><p>3.禁用 Clover 中 Apci 的以下 DSDT 补丁<br>*AddHDMI<br>*FixDisplay<br>*FixIntelGfx<br>*AddIMEI<br>*FixHDA</p><p>4.删除引导参数：`-disablegfxfirmware</p><p>5.删除以下位置所有的和 IGPU、HDMI 相关条目（一般来说清空就行了）:<br>*config.plist ▸ Devices ▸ Arbitrary<br>*config.plist ▸ Devices ▸ Properties<br>*config.plist ▸ Devices ▸ AddProperties</p><p>6.删除或禁用以下 ACPI 重命名补丁: GFX0 to IGPU, PEGP to GFX0, HECI to IMEI, MEI to IMEI, HDAS to HDEF, B0D3 to HDAU</p><p>7.移除 CLOVER/ACPI/patched 里所有和 HDMI 及核显驱动相关补丁</p>]]></content>
     
     
     <summary type="html">&lt;p&gt;只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）</summary>
