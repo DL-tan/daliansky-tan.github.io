@@ -29,7 +29,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daliansky-tan.github.io/images/FB_Final.png">
 <meta property="article:published_time" content="2021-04-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-02T13:33:41.926Z">
+<meta property="article:modified_time" content="2021-05-02T13:47:14.165Z">
 <meta property="article:author" content="谭睿             联系电话：15041150360 邮箱：926223804@qq.com 微信与电话同步">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://daliansky-tan.github.io/images/FB_Final.png">
@@ -184,7 +184,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-02 21:33:41" itemprop="dateModified" datetime="2021-05-02T21:33:41+08:00">2021-05-02</time>
+                <time title="修改时间：2021-05-02 21:47:14" itemprop="dateModified" datetime="2021-05-02T21:47:14+08:00">2021-05-02</time>
               </span>
 
           <br>
@@ -193,7 +193,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>928</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -218,17 +218,44 @@
 <h1 id="清理驱动"><a href="#清理驱动" class="headerlink" title="清理驱动"></a>清理驱动</h1><p>1.移除以下驱动</p>
 <ul>
 <li>AzulPatcher4600</li>
-</ul>
-<p>*AppleBacklightFixup<br>*CoreDisplayFixup<br>*FakePCIID_Intel_HD_Graphics<br>*FakePCIID_Intel_HDMI_Audio<br>*FakePCIID.kext（不使用其他基于 FakePCIID 的插件时）<br>*IntelGraphicsFixup<br>*IntelGraphicsDVMTFixup<br>*NvidiaGraphicsFixup</p>
-<blockquote>
+<li>AppleBacklightFixup</li>
+<li>CoreDisplayFixup</li>
+<li>FakePCIID_Intel_HD_Graphics</li>
+<li>FakePCIID_Intel_HDMI_Audio</li>
+<li>FakePCIID.kext（不使用其他基于 FakePCIID 的插件时）</li>
+<li>IntelGraphicsFixup</li>
+<li>IntelGraphicsDVMTFixup</li>
+<li>NvidiaGraphicsFixup<blockquote>
 <p>这些驱动文件通常位于 Clover 的 kexts/Other 文件夹中</p>
 </blockquote>
-<p>2.关闭所有 Clover 中的显卡注入<br>*config.plist ▸ Graphics ▸ Inject ▸ ATI = NO<br>*config.plist ▸ Graphics ▸ Inject ▸ Intel = NO<br>*config.plist ▸ Graphics ▸ Inject ▸ NVidia = NO<br>*config.plist ▸ Graphics ▸ ig-platform-id = 清空<br>*config.plist ▸ Devices ▸ FakeID ▸ IntelGFX = 清空</p>
-<p>3.禁用 Clover 中 Apci 的以下 DSDT 补丁<br>*AddHDMI<br>*FixDisplay<br>*FixIntelGfx<br>*AddIMEI<br>*FixHDA</p>
+</li>
+</ul>
+<p>2.关闭所有 Clover 中的显卡注入</p>
+<ul>
+<li>config.plist ▸ Graphics ▸ Inject ▸ ATI = NO</li>
+<li>config.plist ▸ Graphics ▸ Inject ▸ Intel = NO</li>
+<li>config.plist ▸ Graphics ▸ Inject ▸ NVidia = NO</li>
+<li>config.plist ▸ Graphics ▸ ig-platform-id = 清空</li>
+<li>config.plist ▸ Devices ▸ FakeID ▸ IntelGFX = 清空</li>
+</ul>
+<p>3.禁用 Clover 中 Apci 的以下 DSDT 补丁</p>
+<ul>
+<li>AddHDMI</li>
+<li>FixDisplay</li>
+<li>FixIntelGfx</li>
+<li>AddIMEI</li>
+<li>FixHDA</li>
+</ul>
 <p>4.删除引导参数：`-disablegfxfirmware</p>
-<p>5.删除以下位置所有的和 IGPU、HDMI 相关条目（一般来说清空就行了）:<br>*config.plist ▸ Devices ▸ Arbitrary<br>*config.plist ▸ Devices ▸ Properties<br>*config.plist ▸ Devices ▸ AddProperties</p>
+<p>5.删除以下位置所有的和 IGPU、HDMI 相关条目（一般来说清空就行了）:</p>
+<ul>
+<li>config.plist ▸ Devices ▸ Arbitrary</li>
+<li>config.plist ▸ Devices ▸ Properties</li>
+<li>config.plist ▸ Devices ▸ AddProperties</li>
+</ul>
 <p>6.删除或禁用以下 ACPI 重命名补丁: GFX0 to IGPU, PEGP to GFX0, HECI to IMEI, MEI to IMEI, HDAS to HDEF, B0D3 to HDAU</p>
 <p>7.移除 CLOVER/ACPI/patched 里所有和 HDMI 及核显驱动相关补丁</p>
+<p>#添加 Lilu + WhateverGreen 驱动<br>下载 [Lilu] (<a target="_blank" rel="noopener" href="https://github.com/acidanthera/Lilu">https://github.com/acidanthera/Lilu</a>) 和 [WhateverGreen] (<a target="_blank" rel="noopener" href="https://github.com/acidanthera/WhateverGreen)%E9%A9%B1%E5%8A%A8%EF%BC%8C%E9%80%89%E6%8B%A9">https://github.com/acidanthera/WhateverGreen)驱动，选择</a> release 版本，解压并将.kext 文件置于 Clover 的 kexts/Other 文件夹中[</p>
 
     </div>
 
