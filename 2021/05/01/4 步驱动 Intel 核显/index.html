@@ -20,17 +20,17 @@
     var CONFIG = {"hostname":"daliansky-tan.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）">
+  <meta name="description" content="只需 4 步，轻松驱动 Intel 核显（# 手动滑稽） 清理以前的驱动→添加 lilu+WhateverGreen 驱动→获取 IGPU 的设备路径→填入 ig-platform-id 和 device-id 看弄完驱动 HD4600 也就这点东西：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="黑苹果 | 4 步驱动 Intel 核显">
 <meta property="og:url" content="https://daliansky-tan.github.io/2021/05/01/4%20%E6%AD%A5%E9%A9%B1%E5%8A%A8%20Intel%20%E6%A0%B8%E6%98%BE/index.html">
 <meta property="og:site_name" content="好大一只鹅的部落阁">
-<meta property="og:description" content="只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）">
+<meta property="og:description" content="只需 4 步，轻松驱动 Intel 核显（# 手动滑稽） 清理以前的驱动→添加 lilu+WhateverGreen 驱动→获取 IGPU 的设备路径→填入 ig-platform-id 和 device-id 看弄完驱动 HD4600 也就这点东西：">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://daliansky-tan.github.io/images/FB_Final.png">
 <meta property="og:image" content="https://daliansky-tan.github.io/images/FB_Fin1al.png">
 <meta property="article:published_time" content="2021-04-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-05-03T13:08:02.383Z">
+<meta property="article:modified_time" content="2021-06-07T02:24:02.812Z">
 <meta property="article:author" content="谭睿             联系电话：15041150360 邮箱：926223804@qq.com 微信与电话同步">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://daliansky-tan.github.io/images/FB_Final.png">
@@ -185,7 +185,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-05-03 21:08:02" itemprop="dateModified" datetime="2021-05-03T21:08:02+08:00">2021-05-03</time>
+                <time title="修改时间：2021-06-07 10:24:02" itemprop="dateModified" datetime="2021-06-07T10:24:02+08:00">2021-06-07</time>
               </span>
 
           <br>
@@ -213,9 +213,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）<span id="more"></span></p>
+        <p>只需 4 步，轻松驱动 Intel 核显（# 手动滑稽）</p>
 <p>清理以前的驱动→添加 lilu+WhateverGreen 驱动→获取 IGPU 的设备路径→填入 ig-platform-id 和 device-id</p>
-<p>看弄完驱动 HD4600 也就这点东西：<br><img src="/images/FB_Final.png" alt="(1)"></p>
+<p>看弄完驱动 HD4600 也就这点东西：<br><img src="/images/FB_Final.png" alt="(1)"> <span id="more"></span></p>
 <h1 id="清理驱动"><a href="#清理驱动" class="headerlink" title="清理驱动"></a>清理驱动</h1><p>1.移除以下驱动</p>
 <ul>
 <li>AzulPatcher4600</li>
@@ -256,19 +256,18 @@
 </ul>
 <p>6.删除或禁用以下 ACPI 重命名补丁: GFX0 to IGPU, PEGP to GFX0, HECI to IMEI, MEI to IMEI, HDAS to HDEF, B0D3 to HDAU</p>
 <p>7.移除 CLOVER/ACPI/patched 里所有和 HDMI 及核显驱动相关补丁</p>
-<p>#添加 Lilu + WhateverGreen 驱动<br>下载 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/Lilu">Lilu</a> 和 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/WhateverGreen">WhateverGreen</a>驱动，选择 release 版本，解压并将.kext 文件置于 Clover 的 kexts/Other 文件夹中</p>
-<p>#获取 IGPU 的设备路径<br>下载并使用 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/gfxutil/releases">gfxutil</a> 工具，将 gfxutil 文件解压至桌面，打开终端输入如下代码：</p>
+<h1 id="添加-Lilu-WhateverGreen-驱动"><a href="#添加-Lilu-WhateverGreen-驱动" class="headerlink" title="添加 Lilu + WhateverGreen 驱动"></a>添加 Lilu + WhateverGreen 驱动</h1><p>下载 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/Lilu">Lilu</a> 和 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/WhateverGreen">WhateverGreen</a>驱动，选择 release 版本，解压并将.kext 文件置于 Clover 的 kexts/Other 文件夹中</p>
+<h1 id="获取-IGPU-的设备路径"><a href="#获取-IGPU-的设备路径" class="headerlink" title="获取 IGPU 的设备路径"></a>获取 IGPU 的设备路径</h1><p>下载并使用 <a target="_blank" rel="noopener" href="https://github.com/acidanthera/gfxutil/releases">gfxutil</a> 工具，将 gfxutil 文件解压至桌面，打开终端输入如下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ cd Desktop</span><br><span class="line">$ .&#x2F;gfxutil -f IGPU</span><br><span class="line">DevicePath &#x3D; PciRoot(0x0)&#x2F;Pci(0x2,0x0)</span><br></pre></td></tr></table></figure>
 
 <p>其中 DevicePath 后面显示的 PciRoot(0x0)/Pci(0x2,0x0) 就是 IGPU 的设备路径</p>
 <p>在 config.plist ▸ Devices ▸ Properties 中填入设备路径<br>![(2)]（/images/Device_IGPU_path.png）</p>
-<p>#ig-platform-id 和 device-id（核心步骤）</p>
-<blockquote>
+<h1 id="ig-platform-id-和-device-id（核心步骤）"><a href="#ig-platform-id-和-device-id（核心步骤）" class="headerlink" title="ig-platform-id 和 device-id（核心步骤）"></a>ig-platform-id 和 device-id（核心步骤）</h1><blockquote>
 <p>7m 通常都是 ig-platform-id 不合适</p>
 </blockquote>
 <ul>
 <li>在 config.plist ▸ Devices ▸ Properties 中添加以下内容：</li>
-<li>AAPL,ig-platform-id 或 AAPL,snb-platform-id（仅适用于 Sandy Bridge 微架构）</li>
+<li>AAPL,ig-platform-id或AAPL,snb-platform-id（仅适用于 Sandy Bridge 微架构）</li>
 <li>设备 IGPU 的 device-id（需要仿冒时）</li>
 <li>设备 IMEI 的 device-id（需要仿冒时）</li>
 <li>部分补丁设定（必要时）</li>
@@ -293,7 +292,10 @@
     <a href="/2020/07/29/%E4%BB%8Eclover%E8%BD%AC%E5%85%A5open%20core/" rel="prev" title="从clover转入open core">
       <i class="fa fa-chevron-left"></i> 从clover转入open core
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/06/07/%E6%96%B0%E5%BB%BA%E6%96%87%E6%9C%AC%E6%96%87%E6%A1%A3/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -352,7 +354,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E9%A9%B1%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">清理驱动</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B8%85%E7%90%86%E9%A9%B1%E5%8A%A8"><span class="nav-number">1.</span> <span class="nav-text">清理驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0-Lilu-WhateverGreen-%E9%A9%B1%E5%8A%A8"><span class="nav-number">2.</span> <span class="nav-text">添加 Lilu + WhateverGreen 驱动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96-IGPU-%E7%9A%84%E8%AE%BE%E5%A4%87%E8%B7%AF%E5%BE%84"><span class="nav-number">3.</span> <span class="nav-text">获取 IGPU 的设备路径</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ig-platform-id-%E5%92%8C-device-id%EF%BC%88%E6%A0%B8%E5%BF%83%E6%AD%A5%E9%AA%A4%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">ig-platform-id 和 device-id（核心步骤）</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -366,7 +368,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
